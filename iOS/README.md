@@ -1,22 +1,25 @@
 
 SDK 接入说明
-
-1.系统要求
+=
+系统要求
+-
 
     支持系统iOS8以上
 
-2.SDK支持
-
+SDK支持
+-
     包含armv7,armv7s,arm64,i386,x86_64指令集, 可运行真机 + 模拟器 
 
-3.集成依赖
+集成依赖
+-
 
     info.plist 添加  Privacy - Photo Library Usage Description  相册权限
                添加  Privacy - Camera Usage Description  相机权限
                  
     引入头文件 #import <FPCustomerService/FPCustomerService.h>
     
-4.接口
+接口
+-
 
     + (instancetype)initWithAppId:(NSInteger)appId        //唯一标识,从客服后台获取 必传
          appKey:(NSString *)appKey        //唯一密钥,从客服后台获取 必传
@@ -34,6 +37,7 @@ SDK 接入说明
     @property(nonatomic,copy)void (^finishLoadHandle)(void); 
     
 代码示例
+-
 
     FPCustomerServiceViewController * vc = [FPCustomerServiceViewController
                                           initWithAppId:1
