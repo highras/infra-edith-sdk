@@ -14,7 +14,7 @@
 		<activity  
 		android:name="com.ilivedata.edith.webview.WebViewActivity"  
 		android:configChanges="screenSize|keyboardHidden|orientation">  
-		</activity>. 
+		</activity>  
 		```
 
 * 将[edithwebview.jar](https://github.com/highras/infra-edith-sdk/tree/master/android/libs)包拷贝到工程app中的libs文件夹下
@@ -24,14 +24,14 @@
 	* `init接口`:
 		* CustomerServiceDataHelper.getInstance().init(Activity context, int appId, String appKey, String userId);  
 			* @param context 应用的Activty  
-			* @param appId 唯一标识,从后台获取  
-			* @param appKey 唯一密钥,从客服后台获取  
-			* @param userId 用户id，此时获取不到userid可传入""
+			* @param appId 唯一标识,从客服控制台获取  
+			* @param appKey 唯一密钥,从客服控制台获取  
+			* @param userId 用户id，此时获取不到userId可传入""
 
 		* CustomerServiceDataHelper.getInstance().init(Activity context, int appId, String appKey, String userId, String userName, String gLang, int level, String gId, String gVersion);  
 			* @param context 应用的Activty  
-			* @param appId 唯一标识,从后台获取  
-			* @param appKey 唯一密钥,从客服后台获取  
+			* @param appId 唯一标识,从客服控制台获取  
+			* @param appKey 唯一密钥,从客服控制台获取  
 			* @param userId 用户id  
 			* @param userName 用户名称  
 			* @param gLang 游戏中的语言  
