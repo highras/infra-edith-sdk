@@ -4,9 +4,9 @@
 
 1.在Android工程的AndroidManifest.xml，增加需要的配置：
 <uses-sdk android:minSdkVersion="14" />
-# 网络权限,如果已经有,则不需要添加该配置
+网络权限,如果已经有,则不需要添加该配置
 <uses-permission android:name="android.permission.INTERNET" />
-# 增加activity
+增加activity
 <activity
 android:name="com.ilivedata.edith.webview.WebViewActivity"
 android:configChanges="screenSize|keyboardHidden|orientation">
