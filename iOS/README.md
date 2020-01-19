@@ -13,9 +13,9 @@ SDK支持
 集成依赖
 -
 
-    引入头文件 #import <FPCustomerService/FPCustomerService.h>
+   *  引入头文件 #import <FPCustomerService/FPCustomerService.h>
     
-    info.plist 添加  Privacy - Photo Library Usage Description  相册权限
+   *  info.plist 添加  Privacy - Photo Library Usage Description  相册权限
                添加  Privacy - Camera Usage Description  相机权限
          
     
