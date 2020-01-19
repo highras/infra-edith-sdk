@@ -1,0 +1,6 @@
+framework module FPCustomerService {
+  umbrella header "FPCustomerService.h"
+
+  export *
+  module * { export * }
+}
