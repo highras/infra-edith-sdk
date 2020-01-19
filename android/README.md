@@ -3,14 +3,14 @@
 智能客服Android sdk接入文档
 
 1.在Android工程的AndroidManifest.xml，增加需要的配置：
-	<uses-sdk android:minSdkVersion="14" />
-	# 网络权限,如果已经有,则不需要添加该配置
-	<uses-permission android:name="android.permission.INTERNET" />
-	# 增加activity
-	<activity
-        android:name="com.ilivedata.edith.webview.WebViewActivity"
-        android:configChanges="screenSize|keyboardHidden|orientation">
-	</activity>
+<uses-sdk android:minSdkVersion="14" />
+# 网络权限,如果已经有,则不需要添加该配置
+<uses-permission android:name="android.permission.INTERNET" />
+# 增加activity
+<activity
+android:name="com.ilivedata.edith.webview.WebViewActivity"
+android:configChanges="screenSize|keyboardHidden|orientation">
+</activity>
 
 2.将edithwebview.jar包拷贝到工程app中的libs文件夹下.
 
