@@ -22,17 +22,18 @@ SDK支持
 -
 
     + (instancetype)initWithAppId:(NSInteger)appId        //唯一标识,从客服后台获取 必传
-         appKey:(NSString *)appKey        //唯一密钥,从客服后台获取 必传
-         userId:(NSString *)userId        //设置玩家id
-       userName:(NSString *)userName      //设置玩家名称
-         gameId:(NSString *)gameId        //设置游戏id
-    gameVersion:(NSString *)gameVersion   //设置游戏版本
-       gameLang:(NSString *)gameLang      //设置游戏语言
-       vipLevel:(NSInteger)vipLevel;      //设置vip等级
+                           appKey:(NSString *)appKey        //唯一密钥,从客服后台获取 必传
+                           userId:(NSString *)userId        //设置玩家id
+                         userName:(NSString *)userName      //设置玩家名称
+                           gameId:(NSString *)gameId        //设置游戏id
+                      gameVersion:(NSString *)gameVersion   //设置游戏版本
+                         gameLang:(NSString *)gameLang      //设置游戏语言
+                         vipLevel:(NSInteger)vipLevel;      //设置vip等级
    
     @property(nonatomic,assign)UIInterfaceOrientation orientation;//方向 不设置默认为自动
     present 对象为 UINavigationController 支持固定方向需要重写 FPOrientationNavigationController (demo提供) 内的方法
     push 不支持固定方向
+    
     @property(nonatomic,copy)void (^startLoadHandle)(void); //可在此处理：   例：相册相机权限提示语处理 添加loadView 等
     @property(nonatomic,copy)void (^finishLoadHandle)(void); 
     
@@ -40,8 +41,8 @@ SDK支持
 -
 
     FPCustomerServiceViewController * vc = [FPCustomerServiceViewController
-                                          initWithAppId:1
-                                                 appKey:@"1"
+                                          initWithAppId:xxx
+                                                 appKey:@"xx"
                                                  userId:@"userId"
                                                userName:@"userName"
                                                  gameId:@"gameId"
