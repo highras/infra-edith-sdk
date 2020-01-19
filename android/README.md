@@ -73,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
     private Button btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        System.out.println("1111 onCreatemain");
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
