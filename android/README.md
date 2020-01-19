@@ -6,9 +6,9 @@
 	<uses-sdk android:minSdkVersion="14" />
 	```
 	* 网络权限,如果已经有,则不需要添加该配置  
-	```xml
-	<uses-permission android:name="android.permission.INTERNET" />
-	```
+		```xml
+		<uses-permission android:name="android.permission.INTERNET" />
+		```
 	* 增加activity  
 		```xml  
 		<activity  
