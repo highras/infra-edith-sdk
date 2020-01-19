@@ -10,7 +10,7 @@
 	<activity
         android:name="com.ilivedata.edith.webview.WebViewActivity"
         android:configChanges="screenSize|keyboardHidden|orientation">
-    </activity>
+	</activity>
 
 2.将edithwebview.jar包拷贝到工程app中的libs文件夹下.
 
