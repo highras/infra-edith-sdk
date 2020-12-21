@@ -1,82 +1,62 @@
 
 SDK 接入说明
-=
-系统要求
--
 
-   *  支持系统iOS10以上
+1.系统要求
 
-SDK支持
--
-   *  包含armv7,armv7s,arm64,i386,x86_64指令集, 可运行真机 + 模拟器 
+    支持系统iOS9以上
 
-集成依赖
--
+2.SDK支持
 
-   *  引入头文件 #import <FPCustomerSDK/FPCustomerSDK.h>
+    包含armv7,armv7s,arm64,i386,x86_64指令集, 可运行真机 + 模拟器 
+
+3.集成依赖
+
+    info.plist 添加  Privacy - Photo Library Usage Description  相册权限
+               添加  Privacy - Camera Usage Description  相机权限
+                 
+    引入头文件 #import <FPCustomerService/FPCustomerService.h>
+    
+4.接口
+
+    + (instancetype)initWithAppId:(NSInteger)appId        //唯一标识,从客服后台获取 必传
+         appKey:(NSString *)appKey        //唯一密钥,从客服后台获取 必传
+         userId:(NSString *)userId        //设置玩家id
+       userName:(NSString *)userName      //设置玩家名称
+         gameId:(NSString *)gameId        //设置游戏id
+    gameVersion:(NSString *)gameVersion   //设置游戏版本
+       gameLang:(NSString *)gameLang      //设置游戏语言
+       vipLevel:(NSInteger)vipLevel;      //设置vip等级
    
-   *  拖入Data文件夹（点击 create folder references ）
+    @property(nonatomic,assign)UIInterfaceOrientation orientation;//方向 不设置默认为自动
+    present 对象为 UINavigationController 支持固定方向需要重写 FPOrientationNavigationController (demo提供) 内的方法
+    push 不支持固定方向
+    @property(nonatomic,copy)void (^startLoadHandle)(void); //可在此处理：   例：相册相机权限提示语处理 添加loadView 等
+    @property(nonatomic,copy)void (^finishLoadHandle)(void); 
     
-   *  info.plist 添加  Privacy - Photo Library Usage Description  相册权限
-                 添加  Privacy - Camera Usage Description  相机权限
-         
-    
-接口
--
+代码示例
 
-    1.初始化
-
-    +(BOOL)fpCustomerInitWithAppid:(NSInteger)appId                     //必传
-                                    userId:(NSString * _Nonnull)userId          //必传
-                                    appKey:(NSString * _Nonnull)appKey          //必传
-                                    gameLanguage:(NSString * _Nonnull)gameLanguage    //必传
-                                    gameId:(NSString * _Nullable)gameId
-                                    userName:(NSString * _Nullable)userName
-                                    serverId:(NSString * _Nullable)serverId
-                                    networkType:(NSString * _Nullable)networkType
-                                    tags:(NSArray<NSString*> * _Nullable)tags
-                                    vipLevel:(NSInteger)vipLevel
-                                    custom:(NSDictionary * _Nullable)custom
-                                    domain:(NSString * _Nonnull)domain
-                                    pushDeviceToken:(NSString * _Nullable)pushDeviceToken;
-                                    
-    2.faq调用
-                                   
-    if ([FPCustomerManager shareInstance].initFinish) {
-        FPNavigationController * nav = [[FPNavigationController alloc] initWithRootViewController:[FPFaqTypeViewController new]];
+    FPCustomerServiceViewController * vc = [FPCustomerServiceViewController
+                                          initWithAppId:1
+                                                 appKey:@"1"
+                                                 userId:@"userId"
+                                               userName:@"userName"
+                                                 gameId:@"gameId"
+                                            gameVersion:@"1.1.1"
+                                               gameLang:@"en"
+                                               vipLevel:1];
+                                               
+    if (vc != nil) {
+        FPOrientationNavigationController* nav = [[FPOrientationNavigationController alloc]initWithRootViewController:vc];
         nav.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self presentViewController:nav animated:YES completion:nil];
+        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+        vc.navigationItem.leftBarButtonItem = backItem;
+        vc.title = @"客服系统";
+        [self presentViewController:nav animated:YES completion:^{
+            
+        }];
     }
-    
-    3.智能机器人
-
-    if ([FPCustomerManager shareInstance].initFinish) {
-    
-    
-    FPCustomerSmartServiceViewController * vc = [FPCustomerSmartServiceViewController
-                                                 initWithAppId:[FPCustomerManager shareInstance].appId
-                                                 appKey:[FPCustomerManager shareInstance].appKey
-                                                 userId:[FPCustomerManager shareInstance].userId
-                                                 userName:[FPCustomerManager shareInstance].userName
-                                                 gameId:[FPCustomerManager shareInstance].gameId
-                                                 gameLang:[FPCustomerManager shareInstance].gameLanguage
-                                                 vipLevel:[FPCustomerManager shareInstance].vipLevel];
-    
-    
-   
-    FPNavigationController * nav = [[FPNavigationController alloc] initWithRootViewController:vc];
-    nav.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:nav animated:YES completion:nil];
+    -(void)back{
+        [self dismissViewControllerAnimated:YES completion: nil];
     }
-    
-   
-
-    4.拉取是否有未读
-    
-    [FPCustomerManager getUnreadStatus:^(BOOL result) {
-        
-        
-    }];
-
  
 
