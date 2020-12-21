@@ -67,8 +67,9 @@ SDK支持
     FPNavigationController * nav = [[FPNavigationController alloc] initWithRootViewController:vc];
     nav.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:nav animated:YES completion:nil];
+    }
     
-   }
+   
 
     4.拉取是否有未读
     
